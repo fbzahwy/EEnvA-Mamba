@@ -1,4 +1,4 @@
-# EEnv-Mamba
+# EEnvA-Mamba
 ![Python 3.11](https://img.shields.io/badge/python-3.11-g)
 ![pytorch 2.3.0](https://img.shields.io/badge/pytorch-2.3.0-blue.svg)
 
