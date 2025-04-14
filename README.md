@@ -16,7 +16,7 @@ pip install -v -e .
 ## Training
 
 ```shell
-python mbyolo_train.py --task train --data ultralytics/cfg/datasets/yourdataset.yaml \
+python eenva-mamba_train.py --task train --data ultralytics/cfg/datasets/yourdataset.yaml \
  --config ultralytics/cfg/models/eenvamamba/EEnvA_Mamba.yaml \
 --amp  --project ./output_dir/mscoco --name eenvamamba_n
 ```
