@@ -1,0 +1,29 @@
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: D:\\Mamba-YOLO-main\\datasets   # dataset root dir
+train: images/train  # train images (relative to 'path') 4 images
+val: images/valid  # val images (relative to 'path') 4 images
+test: #images/train  # test images (optional)
+# Classes
+names:
+  0: person
+  1: bicycle
+  2: road_vehicle
+  3: motorcycle
+  4: crowd
+  5: group_of_bicycles
+  6: train
+  7: wagons
+  8: animal
+  9: group_of_animals
+  10: wheelchair
+  11: drag_shoe
+  12: track
+  13: transition
+  14: switch
+  15: catenary_pole
+  16: signal_pole
+  17: signal
+  18: signal_bridge
+  19: buffer_stop
+  20: flame
+  21: smoke
