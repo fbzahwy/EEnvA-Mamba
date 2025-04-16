@@ -433,7 +433,7 @@ class AXSSBlock(nn.Module):
                                          conv_bias=ssm_conv_bias,
                                          dropout=ssm_drop_rate, ) for _ in range(n)))
         self.drop_path = DropPath(drop_path)
-        self.lsblock = OALE(hidden_dim, hidden_dim)
+        self.oale = OALE(hidden_dim, hidden_dim)
 
         self.mlp_branch = mlp_ratio > 0
         if self.mlp_branch:
@@ -444,7 +444,7 @@ class AXSSBlock(nn.Module):
 
     def forward(self, input):
         input = self.in_proj(input)
-        X1 = self.lsblock(input)
+        X1 = self.oale(input)
         # ====================
         input = input + self.drop_path(self.ss2d(self.norm(X1)))
 
@@ -530,7 +530,7 @@ class AVSSBlock(nn.Module):
             )
 
         self.drop_path = DropPath(drop_path)
-        self.lsblock = OALE(hidden_dim, hidden_dim)
+        self.oale = OALE(hidden_dim, hidden_dim)
 
         if self.mlp_branch:
             self.norm2 = norm_layer(hidden_dim)
@@ -540,7 +540,7 @@ class AVSSBlock(nn.Module):
 
     def forward(self, input: torch.Tensor):
         input = self.proj_conv(input)
-        X1 = self.lsblock(input)
+        X1 = self.oale(input)
         x = input + self.drop_path(self.op(self.norm(X1)))
         if self.mlp_branch:
             x = x + self.drop_path(self.mlp(self.norm2(x)))  # FFN
